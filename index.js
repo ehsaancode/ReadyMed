@@ -8,8 +8,11 @@ const bodyParser = require("body-parser")
 const { notFound, errorHandler } = require("./middlewares/errorHandler")
 const productRouter = require('./routes/productRoute')
 const cookieParser = require('cookie-parser')
+const morgan = require("morgan")
 
 dbConnect()
+
+app.use(morgan("dev"))
 app.use(bodyParser.json())
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -25,4 +28,4 @@ app.listen(PORT, () => {
     console.log(`Server  is running on port ${PORT}`)
 })
 
-//2:44
+//3:3
